@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TechSolutions - Assessoria em Tecnologia</title>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+  <!-- Header -->
+  <header>
+    <nav class="nav-container">
+      <div class="logo">DFTechSolutions</div>
+      <div class="menu-toggle" id="mobile-menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="#home">Início</a></li>
+        <li><a href="#services">Serviços</a></li>
+        <li><a href="#about">Sobre</a></li>
+        <li><a href="#contact">Contato</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Hero Section -->
+  <!-- Hero Section com Animação -->
+  <section id="home" class="hero">
+    <!-- Container da Animação de Fundo -->
+    <div class="tech-animation" id="tech-animation"></div>
+
+    <!-- Conteúdo Principal (Texto e Botão) -->
+    <div class="hero-content">
+      <h1>Inovação e <span>Tecnologia</span> para o seu Negócio</h1>
+      <p>Transformamos processos e impulsionamos resultados com soluções inteligentes.</p>
+      <a href="#contact" class="btn">Solicitar Consultoria</a>
+    </div>
+  </section>
+
+  <!-- Serviços -->
+  <section id="services" class="section">
+    <h2 class="section-title">Nossos Serviços</h2>
+    <div class="services-grid">
+
+      <!-- Card 1: Desenvolvimento -->
+      <div class="service-card">
+        <img
+          src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+          alt="Desenvolvimento de Software" class="service-image">
+        <h3>Desenvolvimento de Software</h3>
+        <p>Criação de sistemas personalizados para automatizar e otimizar seus processos internos.</p>
+      </div>
+
+      <!-- Card 2: Cloud -->
+      <div class="service-card">
+        <img src="img/cloud-computing.png" alt="Cloud Computing" class="service-image">
+        <h3>Cloud Computing</h3>
+        <p>Migração e gestão de infraestrutura em nuvem (AWS, Azure, Google Cloud) com segurança total.</p>
+      </div>
+
+
+      <!-- Card 3: Segurança -->
+      <div class="service-card">
+        <img
+          src="https://images.unsplash.com/photo-1563986768609-322da13575f3?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+          alt="Segurança da Informação" class="service-image">
+        <h3>Segurança da Informação</h3>
+        <p>Proteção de dados, LGPD e prevenção contra ameaças cibernéticas para sua empresa.</p>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- Sobre -->
+  <section id="about" class="section about-section">
+    <h2 class="section-title">Por que nos escolher?</h2>
+    <div class="about-content">
+      <div class="about-text">
+        <h3>Experiência Comprovada</h3>
+        <p>Mais de 10 anos atuando no mercado de tecnologia, entregando soluções que geram valor real para empresas de
+          diversos portes.</p>
+        <br>
+        <h3>Equipe Especializada</h3>
+        <p>Contamos com profissionais certificados e atualizados com as últimas tendências do mercado tech.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contato -->
+  <section id="contact" class="section">
+    <h2 class="section-title">Entre em Contato</h2>
+    <form class="contact-form" id="contact-form">
+      <div class="form-group">
+        <input type="text" name="name" placeholder="Seu Nome" required>
+      </div>
+      <div class="form-group">
+        <input type="email" name="email" placeholder="Seu E-mail" required>
+      </div>
+      <div class="form-group">
+        <input type="text" name="_subject" placeholder="Assunto">
+      </div>
+      <div class="form-group">
+        <textarea rows="5" name="message" placeholder="Sua Mensagem" required></textarea>
+      </div>
+      <input type="hidden" name="_captcha" value="false">
+      <button type="submit" class="btn">Enviar Mensagem</button>
+    </form>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2026 DFTechSolutions. Todos os direitos reservados.</p>
+  </footer>
+
+
+  <!-- Botão WhatsApp com Ícone Correto -->
+  <a href="https://wa.me/5511993374533?text=Olá! Gostaria de saber mais sobre os serviços." target="_blank"
+    class="whatsapp-float">
+    <i class="fa-brands fa-whatsapp"></i>
+  </a>
+
+</body>
+
+<script src="script.js"></script>
+
+</html>

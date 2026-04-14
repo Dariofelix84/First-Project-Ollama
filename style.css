@@ -343,3 +343,135 @@
         opacity: 0;
       }
     }
+
+    /* -------- Contact Form Modern Look -------- */
+    .contact-form {
+      background: rgba(255, 255, 255, 0.9);
+      backdrop-filter: blur(8px);
+      border-radius: 12px;
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+      padding: 2.5rem;
+      max-width: 560px;
+      width: 90%;
+      margin: 3rem auto;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .contact-form:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+    }
+
+    .contact-form .form-group input,
+    .contact-form .form-group textarea {
+      width: 100%;
+      padding: 0.9rem 1rem;
+      border: 1px solid #e0e0e0;
+      border-radius: 8px;
+      font-size: 1rem;
+      background: #fff;
+      transition: border-color 0.3s, box-shadow 0.3s;
+    }
+
+    .contact-form .form-group input:focus,
+    .contact-form .form-group textarea:focus {
+      outline: none;
+      border-color: #00d4ff;
+      box-shadow: 0 0 0 3px rgba(0, 212, 255, 0.2);
+    }
+
+    .contact-form .form-group input::placeholder,
+    .contact-form .form-group textarea::placeholder {
+      color: #a0a0a0;
+      opacity: 1;
+    }
+
+    /* -------- Input Icon Groups -------- */
+    .input-icon-group {
+      position: relative;
+    }
+
+    .input-icon-group>i {
+      position: absolute;
+      left: 14px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: #00d4ff;
+      font-size: 1rem;
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    .input-icon-group.textarea-icon>i {
+      top: 1.2rem;
+      transform: none;
+    }
+
+    .input-icon-group input,
+    .input-icon-group textarea {
+      padding-left: 2.8rem !important;
+    }
+
+    .contact-form .btn {
+      display: inline-block;
+      background: linear-gradient(135deg, #00d4ff, #07a1f2);
+      color: #1a1a2e;
+      padding: 0.9rem 2rem;
+      border: none;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background 0.3s, transform 0.2s, box-shadow 0.2s;
+    }
+
+    .contact-form .btn:hover {
+      background: linear-gradient(135deg, #00a8cc, #0486d1);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Optional label styling */
+    .contact-form .form-group label {
+      font-weight: 500;
+      color: #1a1a2e;
+      margin-bottom: 0.4rem;
+    }
+
+    /* -------- Modern Toast Notification -------- */
+    .toast-notification {
+      position: fixed;
+      bottom: -100px;
+      /* Escondido por padrão na parte inferior */
+      left: 50%;
+      transform: translateX(-50%);
+      background: white;
+      color: #1a1a2e;
+      padding: 1rem 1.5rem;
+      border-radius: 50px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      z-index: 9999;
+      font-weight: 500;
+      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+
+    .toast-notification.show {
+      bottom: 40px;
+    }
+
+    .toast-notification i {
+      font-size: 1.5rem;
+    }
+
+    .toast-notification.success i {
+      color: #25D366;
+      /* Verde sucesso */
+    }
+
+    .toast-notification.error i {
+      color: #ff3333;
+      /* Vermelho erro */
+    }

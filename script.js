@@ -23,6 +23,35 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 });
 
 // 3. Envio do Formulário (FormSubmit via AJAX)
+
+// Função para exibir Toast Notification (Aviso Bonito)
+function showToast(message, type = 'success') {
+  const existingToast = document.querySelector('.toast-notification');
+  if (existingToast) existingToast.remove();
+
+  const toast = document.createElement('div');
+  toast.className = `toast-notification ${type}`;
+
+  const icon = document.createElement('i');
+  icon.className = type === 'success' ? 'fa-solid fa-circle-check' : 'fa-solid fa-circle-exclamation';
+
+  const text = document.createElement('span');
+  text.innerText = message;
+
+  toast.appendChild(icon);
+  toast.appendChild(text);
+  document.body.appendChild(toast);
+
+  requestAnimationFrame(() => {
+    toast.classList.add('show');
+  });
+
+  setTimeout(() => {
+    toast.classList.remove('show');
+    setTimeout(() => toast.remove(), 400);
+  }, 5000);
+}
+
 const form = document.getElementById('contact-form');
 form.addEventListener('submit', (e) => {
   e.preventDefault();
@@ -33,7 +62,28 @@ form.addEventListener('submit', (e) => {
   btn.disabled = true;
 
   const formData = new FormData(form);
-  const data = Object.fromEntries(formData);
+
+  // Captura o nome do remetente para usar no assunto do e-mail
+  const senderName = formData.get('name') || 'Visitante';
+  const userSubject = formData.get('subject') || 'Contato via Site';
+
+  // Define o assunto personalizado com o nome de quem enviou
+  formData.set('_subject', `📩 Nova mensagem de ${senderName} — ${userSubject}`);
+  // Remove o campo "subject" genérico para não duplicar no corpo do e-mail
+  formData.delete('subject');
+
+  // Template visual 'box' do FormSubmit
+  formData.append('_template', 'box');
+
+  // Renomeia os campos para ficarem com ícones no corpo do e-mail
+  const rawData = Object.fromEntries(formData);
+  const data = {};
+  for (const [key, value] of Object.entries(rawData)) {
+    if (key === 'name') data['👤 Nome'] = value;
+    else if (key === 'email') data['📧 E-mail'] = value;
+    else if (key === 'message') data['💬 Mensagem'] = value;
+    else data[key] = value; // campos ocultos como _template, _captcha, _subject
+  }
 
   // INSIRA O SEU E-MAIL AQUI (substitua a string abaixo pelo seu email)
   const email = 'dariofa69@gmail.com';
@@ -48,11 +98,11 @@ form.addEventListener('submit', (e) => {
   })
     .then(response => response.json())
     .then(data => {
-      alert('Mensagem enviada com sucesso! Importante: Verifique a caixa de entrada do seu email para confirmar o FormSubmit no primeiro envio.');
+      showToast('Mensagem enviada com sucesso! Importante: Verifique a caixa de entrada para confirmar o primeiro envio.', 'success');
       form.reset();
     })
     .catch(error => {
-      alert('Erro ao enviar a mensagem. Tente novamente mais tarde.');
+      showToast('Erro ao enviar a mensagem. Tente novamente mais tarde.', 'error');
       console.error(error);
     })
     .finally(() => {

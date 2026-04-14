@@ -396,11 +396,32 @@
       left: 14px;
       top: 50%;
       transform: translateY(-50%);
-      color: #00d4ff;
-      font-size: 1rem;
+      font-size: 1.1rem;
       pointer-events: none;
       z-index: 1;
     }
+
+    /* Cores originais/naturais para cada ícone */
+    .input-icon-group .fa-user {
+      color: #4a90d9;
+    }
+
+    /* Azul */
+    .input-icon-group .fa-envelope {
+      color: #e74c3c;
+    }
+
+    /* Vermelho */
+    .input-icon-group .fa-tag {
+      color: #f39c12;
+    }
+
+    /* Amarelo/Laranja */
+    .input-icon-group .fa-comment-dots {
+      color: #2ecc71;
+    }
+
+    /* Verde */
 
     .input-icon-group.textarea-icon>i {
       top: 1.2rem;

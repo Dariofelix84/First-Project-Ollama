@@ -387,51 +387,51 @@
     }
 
     /* -------- Input Icon Groups -------- */
-    .input-icon-group {
+    .contact-form .input-icon-group {
       position: relative;
+      margin-bottom: 1rem;
     }
 
-    .input-icon-group>i {
+    .contact-form .input-icon-group>i {
       position: absolute;
       left: 14px;
       top: 50%;
       transform: translateY(-50%);
       font-size: 1.1rem;
       pointer-events: none;
-      z-index: 1;
+      z-index: 2;
     }
 
-    /* Cores originais/naturais para cada ícone */
-    .input-icon-group .fa-user {
-      color: #4a90d9;
-    }
-
-    /* Azul */
-    .input-icon-group .fa-envelope {
-      color: #e74c3c;
-    }
-
-    /* Vermelho */
-    .input-icon-group .fa-tag {
-      color: #f39c12;
-    }
-
-    /* Amarelo/Laranja */
-    .input-icon-group .fa-comment-dots {
-      color: #2ecc71;
-    }
-
-    /* Verde */
-
-    .input-icon-group.textarea-icon>i {
-      top: 1.2rem;
+    .contact-form .input-icon-group.textarea-icon>i {
+      top: 1.3rem;
       transform: none;
     }
 
-    .input-icon-group input,
-    .input-icon-group textarea {
+    .contact-form .input-icon-group input,
+    .contact-form .input-icon-group textarea {
       padding-left: 2.8rem !important;
     }
+
+    /* Cores naturais para cada ícone */
+    .contact-form .input-icon-group .fa-user {
+      color: #4a90d9;
+    }
+
+    .contact-form .input-icon-group .fa-envelope {
+      color: #e74c3c;
+    }
+
+    .contact-form .input-icon-group .fa-tag {
+      color: #f39c12;
+    }
+
+    .contact-form .input-icon-group .fa-comment-dots {
+      color: #2ecc71;
+    }
+
+
+
+
 
     .contact-form .btn {
       display: inline-block;

@@ -393,21 +393,22 @@
       display: block;
     }
 
-    .contact-form .input-icon-group>i {
+    .contact-form .input-icon-group>i,
+    .contact-form .input-icon-group>svg {
       position: absolute;
       left: 14px;
       top: 50%;
       transform: translateY(-50%);
       font-size: 1.1rem;
+      width: 1.1em;
+      height: 1.1em;
       pointer-events: none;
       z-index: 2;
       line-height: 1;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
     }
 
-    .contact-form .input-icon-group.textarea-icon>i {
+    .contact-form .input-icon-group.textarea-icon>i,
+    .contact-form .input-icon-group.textarea-icon>svg {
       top: 1.3rem;
       transform: none;
     }
@@ -420,18 +421,22 @@
     /* Cores naturais para cada ícone */
     .contact-form .input-icon-group .fa-user {
       color: #4a90d9;
+      fill: #4a90d9;
     }
 
     .contact-form .input-icon-group .fa-envelope {
       color: #e74c3c;
+      fill: #e74c3c;
     }
 
     .contact-form .input-icon-group .fa-tag {
       color: #f39c12;
+      fill: #f39c12;
     }
 
     .contact-form .input-icon-group .fa-comment-dots {
       color: #2ecc71;
+      fill: #2ecc71;
     }
 
     .contact-form .btn {
@@ -484,16 +489,23 @@
       bottom: 40px;
     }
 
-    .toast-notification i {
+    .toast-notification i,
+    .toast-notification svg {
       font-size: 1.5rem;
+      width: 1.5rem;
+      height: 1.5rem;
     }
 
-    .toast-notification.success i {
+    .toast-notification.success i,
+    .toast-notification.success svg {
       color: #25D366;
+      fill: #25D366;
       /* Verde sucesso */
     }
 
-    .toast-notification.error i {
+    .toast-notification.error i,
+    .toast-notification.error svg {
       color: #ff3333;
+      fill: #ff3333;
       /* Vermelho erro */
     }

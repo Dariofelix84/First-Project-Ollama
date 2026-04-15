@@ -390,6 +390,7 @@
     .contact-form .input-icon-group {
       position: relative;
       margin-bottom: 1rem;
+      display: block;
     }
 
     .contact-form .input-icon-group>i {
@@ -400,6 +401,10 @@
       font-size: 1.1rem;
       pointer-events: none;
       z-index: 2;
+      line-height: 1;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
     }
 
     .contact-form .input-icon-group.textarea-icon>i {
@@ -428,10 +433,6 @@
     .contact-form .input-icon-group .fa-comment-dots {
       color: #2ecc71;
     }
-
-
-
-
 
     .contact-form .btn {
       display: inline-block;

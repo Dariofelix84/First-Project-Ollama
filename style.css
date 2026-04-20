@@ -20,16 +20,51 @@
       list-style: none;
     }
 
-    /* Header e Navegação */
+    /* Header e Navegação — Glassmorphism Moderno */
     header {
-      background-color: #1a1a2e;
+      background: rgba(26, 26, 46, 0.75);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
       color: white;
       padding: 1rem 0;
       position: fixed;
       width: 100%;
       top: 0;
       z-index: 1000;
-      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+      border-bottom: 1px solid rgba(0, 212, 255, 0.15);
+      transition: padding 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+        background 0.4s ease,
+        box-shadow 0.4s ease;
+    }
+
+    /* Linha inferior com gradiente animado */
+    header::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, #00d4ff, #7b2ff7, #00d4ff, transparent);
+      background-size: 200% 100%;
+      animation: headerGradientSlide 4s linear infinite;
+    }
+
+    @keyframes headerGradientSlide {
+      0% {
+        background-position: 100% 0;
+      }
+
+      100% {
+        background-position: -100% 0;
+      }
+    }
+
+    /* Estado ao rolar a página */
+    header.scrolled {
+      padding: 0.5rem 0;
+      background: rgba(26, 26, 46, 0.95);
+      box-shadow: 0 4px 30px rgba(0, 0, 0, 0.35);
     }
 
     .nav-container {
@@ -42,9 +77,17 @@
     }
 
     .logo {
-      font-size: 1.5rem;
-      font-weight: bold;
+      font-size: 1.6rem;
+      font-weight: 800;
+      letter-spacing: 1px;
       color: #00d4ff;
+      text-shadow: 0 0 12px rgba(0, 212, 255, 0.5);
+      transition: text-shadow 0.3s ease;
+    }
+
+    .logo:hover {
+      text-shadow: 0 0 20px rgba(0, 212, 255, 0.8),
+        0 0 40px rgba(0, 212, 255, 0.4);
     }
 
     .nav-links {
@@ -52,9 +95,33 @@
       gap: 2rem;
     }
 
+    .nav-links a {
+      position: relative;
+      padding: 4px 0;
+      font-weight: 500;
+      letter-spacing: 0.5px;
+      transition: color 0.3s ease;
+    }
+
+    /* Underline animado nos links */
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: -2px;
+      width: 0;
+      height: 2px;
+      background: linear-gradient(90deg, #00d4ff, #7b2ff7);
+      border-radius: 2px;
+      transition: width 0.35s cubic-bezier(0.25, 0.8, 0.25, 1);
+    }
+
     .nav-links a:hover {
       color: #00d4ff;
-      transition: 0.3s;
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
     }
 
     /* Menu Mobile (Hamburguer) */
@@ -69,6 +136,7 @@
       width: 25px;
       height: 3px;
       background-color: white;
+      border-radius: 3px;
       transition: 0.3s;
     }
 
@@ -240,18 +308,19 @@
         top: 100%;
         left: 0;
         width: 100%;
-        background-color: #1a1a2e;
+        background: rgba(26, 26, 46, 0.95);
+        backdrop-filter: blur(16px);
+        -webkit-backdrop-filter: blur(16px);
         flex-direction: column;
         align-items: center;
         gap: 1rem;
         padding: 1rem 0;
         display: none;
-        /* Escondido por padrão */
+        border-bottom: 1px solid rgba(0, 212, 255, 0.15);
       }
 
       .nav-links.active {
         display: flex;
-        /* Mostrado quando ativo */
       }
 
       .menu-toggle {

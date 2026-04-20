@@ -6,6 +6,12 @@ mobileMenu.addEventListener('click', () => {
   navLinks.classList.toggle('active');
 });
 
+// Header: efeito compacto ao rolar
+const headerEl = document.querySelector('header');
+window.addEventListener('scroll', () => {
+  headerEl.classList.toggle('scrolled', window.scrollY > 50);
+}, { passive: true });
+
 // 2. Smooth Scroll (Rolagem Suave)
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   anchor.addEventListener('click', function (e) {

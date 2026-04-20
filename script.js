@@ -65,25 +65,20 @@ form.addEventListener('submit', (e) => {
 
   // Captura o nome do remetente para usar no assunto do e-mail
   const senderName = formData.get('name') || 'Visitante';
+  const senderEmail = formData.get('email') || '';
   const userSubject = formData.get('subject') || 'Contato via Site';
 
-  // Define o assunto personalizado com o nome de quem enviou
-  formData.set('_subject', `📩 Nova mensagem de ${senderName} — ${userSubject}`);
-  // Remove o campo "subject" genérico para não duplicar no corpo do e-mail
-  formData.delete('subject');
-
-  // Template visual 'box' do FormSubmit
-  formData.append('_template', 'box');
-
-  // Renomeia os campos para ficarem com ícones no corpo do e-mail
-  const rawData = Object.fromEntries(formData);
-  const data = {};
-  for (const [key, value] of Object.entries(rawData)) {
-    if (key === 'name') data['👤 Nome'] = value;
-    else if (key === 'email') data['📧 E-mail'] = value;
-    else if (key === 'message') data['💬 Mensagem'] = value;
-    else data[key] = value; // campos ocultos como _template, _captcha, _subject
-  }
+  // Monta o objeto de dados com campos renomeados para o corpo do e-mail
+  const data = {
+    '👤 Nome': formData.get('name'),
+    '📧 E-mail': formData.get('email'),
+    '💬 Mensagem': formData.get('message'),
+    // Campos de controle do FormSubmit
+    '_subject': `DFelixTech — ${userSubject} (de ${senderName})`,
+    '_replyto': senderEmail,
+    '_template': 'box',
+    '_captcha': 'false'
+  };
 
   // INSIRA O SEU E-MAIL AQUI (substitua a string abaixo pelo seu email)
   const email = 'dariofa69@gmail.com';
